@@ -1,6 +1,6 @@
 # Patter-Recognition
 
-- cv2.calcHist(images, channels, mask, histSize, ranges[, hist[, accumulate]])
+### cv2.calcHist(images, channels, mask, histSize, ranges[, hist[, accumulate]])
 images = 분석할 이미지 list\
 channels = BGR (1-channel이면 [0], 3-channel [0,2])\
 mask = 분석할 이미지 영역 마스크, none=전체영역\
