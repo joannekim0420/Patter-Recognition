@@ -1,4 +1,4 @@
-# Patter-Recognition
+# Pattern-Recognition
 
 - matplotlib 
   R,G,B순서\
