@@ -40,3 +40,9 @@ img = input image\
 cv_result = output image\
 cv_M = Affine transform, 적용할 매트릭스\
 (width, height) = ouput 영상의 사이즈 
+
+### blurred_img = cv2.GaussianBlur(gray_img, (3,3), 0.0)
+(input_image, kernel_size, sigma)
+
+# edge_img = cv2.Canny(blurred_img, 70, 140)
+(input_image, low_th, high_th)
