@@ -17,6 +17,7 @@ plt.title('original')
 center = (width/2, height/2)
 cv_M = cv2.getRotationMatrix2D(center, 90, 1.0)
 cv_result = cv2.warpAffine(img, cv_M, (width, height))
+#flags - 보간법 설정
 print(cv_M, end='\n\n')
 
 plt.subplot(1,3,2)
@@ -24,8 +25,8 @@ plt.imshow(cv_result)
 plt.axis('off')
 plt.title('cv_result')
 
-#my_M
-
+"""
+#my code
 y = (width-height)/2
 #print(y)
 x = -(width-y)
@@ -38,9 +39,10 @@ my_M = np.matmul(M1, M2)
 
 print('>>My matrix')
 print(my_M)
+"""
 
-##correct code
-
+#답 이동->회전->이동 (원점을 기준으로 회전하기 때문에, 중점을 원점에 맞추고 회전한 후 다시 이동한 만큼 돌려놔야함)
+#center = (width/2, height/2)
 fwd_tran_M = np.array([[1,0,-center[0]],
                       [0,1,-center[1]],
                       [0,0,1]])
@@ -54,10 +56,10 @@ bwd_tran_M = np.array([[1,0,center[0]],
                       [0,0,1]])
 
 tmp = np.matmul(rot_M, fwd_tran_M)
-my_M = np.matmul(bwd_tran_M)
-my_M = my_M[:2, ] #=my_M[0:2, 0:3]
+my_M = np.matmul(bwd_tran_M, tmp)
+my_M = my_M[:2, ] #=my_M[0:2, 0:3] 2X3 행렬로 넘겨줘야함
 
-my_result=cv2.warpAffine(img, my_M, (width, height))
+my_result = cv2.warpAffine(img, my_M, (width, height))
 
 plt.subplot(1,3,3)
 plt.imshow(my_result)
