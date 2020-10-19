@@ -29,3 +29,14 @@ iterations = 연산을 반복할 횟수
 
 ### cv2.morphologyEx(img, cv2.MORTH_CLOSE, kernel)
 cv2.MORTH_CLOSE, cv2.MORTH_OPEN
+
+### cv_M = cv2.getRotationMatrix2D(center, 90, 1.0)
+center = 회전의 기준이 되는 좌표\
+counter clockwise 90도 만큼\
+크기는 1배로 유지해서
+
+### cv_result = cv2.warpAffine(img, cv_M, (width, height))
+img = input image\
+cv_result = output image\
+cv_M = Affine transform, 적용할 매트릭스\
+(width, height) = ouput 영상의 사이즈 
