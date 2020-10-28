@@ -46,3 +46,12 @@ cv_M = Affine transform, 적용할 매트릭스\
 
 ### edge_img = cv2.Canny(blurred_img, 70, 140)
 (input_image, low_th, high_th)
+
+###  cv2.HoughLinesP(roi_img,1, np.pi / 180, 10, 10, 3)
+                            # input image
+                            # rho = distance resoultion of the accumulator in pixels
+                            # theta = angel resoultion of the accumulator in radians
+                            # threshold=변환 공간에서 만나는 점의 개수 기준, 숫자가 작으면 많은 선이 검출되지만 정확도가 떨어지고, 숫자가 크면 정확도가 올라감.
+                            # minLineLength=선의 최소 길이. 이 값보다 작으면 reject.
+                            # maxLineGap=선과 선사이의 최대 허용간격.
+                            #houghlinesP는 찾은 직선들의 좌표점(시작점과 끝점) 을 list로 반환
